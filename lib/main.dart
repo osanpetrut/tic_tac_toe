@@ -49,6 +49,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey,
+      appBar: AppBar(
+        backgroundColor: Colors.grey[700],
+        title: const Text(
+          'Tic Tac Toe',
+        ),
+        centerTitle: true,
+      ),
       body: Column(
         children: <Widget>[
           Expanded(
