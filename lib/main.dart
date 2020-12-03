@@ -252,9 +252,9 @@ class _HomePageState extends State<HomePage> {
 
     if (winner == 'o') {
       oScore++;
-      _winnerSound();
+      _oWinner();
     } else if (winner == 'x') {
-      _winnerSound();
+      _xWinner();
       xScore++;
     }
     _clear();
@@ -273,8 +273,13 @@ class _HomePageState extends State<HomePage> {
     equality = 0;
   }
 
-  void _winnerSound() async {
+  void _oWinner() {
     final AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-    assetsAudioPlayer.open(Audio('song/winner.mp3'));
+    assetsAudioPlayer.open(Audio('song/oWinner.mp3'));
+  }
+
+  void _xWinner() {
+    final AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(Audio('song/xWinner.mp3'));
   }
 }
