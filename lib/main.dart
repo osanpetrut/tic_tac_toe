@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:assets_audio_player/assets_audio_player.dart';
 //import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -251,11 +252,13 @@ class _HomePageState extends State<HomePage> {
 
     if (winner == 'o') {
       oScore++;
+      _winnerSound();
     } else if (winner == 'x') {
+      _winnerSound();
       xScore++;
     }
     _clear();
-    if (oScore == 5 || xScore == 5){
+    if (oScore == 5 || xScore == 5) {
       oScore = 0;
       xScore = 0;
     }
@@ -268,5 +271,10 @@ class _HomePageState extends State<HomePage> {
       }
     });
     equality = 0;
+  }
+
+  void _winnerSound() async {
+    final AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(Audio('song/winner.mp3'));
   }
 }
